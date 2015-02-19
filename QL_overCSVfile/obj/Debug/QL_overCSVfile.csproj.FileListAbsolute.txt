@@ -1,0 +1,6 @@
+c:\users\kostadin\documents\visual studio 2012\Projects\QL_overCSVfile\QL_overCSVfile\bin\Debug\QL_overCSVfile.exe.config
+c:\users\kostadin\documents\visual studio 2012\Projects\QL_overCSVfile\QL_overCSVfile\obj\Debug\QL_overCSVfile.csprojResolveAssemblyReference.cache
+c:\users\kostadin\documents\visual studio 2012\Projects\QL_overCSVfile\QL_overCSVfile\bin\Debug\QL_overCSVfile.exe
+c:\users\kostadin\documents\visual studio 2012\Projects\QL_overCSVfile\QL_overCSVfile\bin\Debug\QL_overCSVfile.pdb
+c:\users\kostadin\documents\visual studio 2012\Projects\QL_overCSVfile\QL_overCSVfile\obj\Debug\QL_overCSVfile.exe
+c:\users\kostadin\documents\visual studio 2012\Projects\QL_overCSVfile\QL_overCSVfile\obj\Debug\QL_overCSVfile.pdb
