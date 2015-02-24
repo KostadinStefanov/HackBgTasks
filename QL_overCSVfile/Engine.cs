@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 
 
 namespace QL_overCSVfile
@@ -12,6 +10,7 @@ namespace QL_overCSVfile
     {
 
         private List<CSVobject> CSVobjects;
+        List<object> shownobjects = new List<object>();
 
         public Engine()
         {
@@ -26,24 +25,30 @@ namespace QL_overCSVfile
                 case "SELECT":
                     throw new NotImplementedException();   
                 case "SUM":
-                    throw new NotImplementedException();
+                    return ExecuteSumCommand(cmdArgs);;
                 case "SHOW":
                     return ExecuteShowCommand(cmdArgs);
                 case "FIND":                   
                      return ExecuteFindCommand(cmdArgs);
 
                 default:
-                     List<object> shownobjects = new List<object>();
                      var text = String.Format("Invalid command ! only \"SELECT\" , \"SUM\" ,\"SHOW\" or \"FIND\"! -- END to EXIT ");                  
                      shownobjects.Add(text);
                     return shownobjects;
             }
         }
 
-        private List<object> ExecuteShowCommand(string[] cmdArgs)
-        {
-            List<object> shownobjects = new List<object>();
 
+        private List<object> ExecuteSumCommand(string[] cmdArgs)
+        {                               
+            double total = CSVobjects.Sum(item => item.ID);                     
+            shownobjects.Add(total);           
+            return shownobjects;                      
+         }
+      
+
+        private List<object> ExecuteShowCommand(string[] cmdArgs)
+        {            
             foreach (var prop in CSVobjects)
             {
                 var text = String.Format("{0}, {1}, {2}", prop.ID, prop.Name, prop.Course); 
@@ -53,16 +58,15 @@ namespace QL_overCSVfile
             return shownobjects;
         }
 
+
         private List<object> ExecuteFindCommand(string[] cmdArgs)
         {
            return Filter(CSVobjects, cmdArgs[0]) ;
         }
 
         
-        public List<object> Filter(List<CSVobject> collection, string filterValue)
+        private List<object> Filter(List<CSVobject> collection, string filterValue)
         {
-            List<object> shownobjects = new List<object>();
-
             var filteredCollection =
             collection.Where(item => item.Name.Contains(filterValue) ||
                 item.ID.ToString(CultureInfo.InvariantCulture).Contains(filterValue) ||
@@ -77,7 +81,6 @@ namespace QL_overCSVfile
             }
             
             return shownobjects;
-
         }
 
 

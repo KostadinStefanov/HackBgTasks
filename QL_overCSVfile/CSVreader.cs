@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace QL_overCSVfile
 {
@@ -24,9 +23,9 @@ namespace QL_overCSVfile
                 CSVobjects.Add(result);
             }
             return CSVobjects;
-
         } 
     }
+
 
     public class CSVobject
     {
